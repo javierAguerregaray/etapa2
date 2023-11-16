@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<h1>
+<body>
+    <script>
+let a =[
+    
+{nombre:"pepe", apellido:"gomez", telefono:"115050"},
+{nombre:"josee", apellido:"galarza", telefono:"115050"},
+{nombre:"ana", apellido:"timar", telefono:"115050"},
+{nombre:"lucho", apellido:"zoto", telefono:"115050"},
+{nombre:"pepe", apellido:"gomez", telefono:"115050"},
+{nombre:"josee", apellido:"galarza", telefono:"115050"},
+{nombre:"ana", apellido:"timar", telefono:"115050"},
+{nombre:"lucho", apellido:"zoto", telefono:"115050"},{nombre:"pepe", apellido:"gomez", telefono:"115050"},
+{nombre:"josee", apellido:"galarza", telefono:"115050"},
+{nombre:"ana", apellido:"timar", telefono:"115050"},
+{nombre:"lucho", apellido:"zoto", telefono:"115050"},];
+
+const adato = a.map(({nombre, apellido, telefono}) =>
+
+
+`
+<li>
+${nombre} ${apellido}<br> ${telefono} <br>
+</li>
+`
+
+
+)
+   
+
+const agenda = 
+`
+
+<div id="root">
+
+    ${ adato.join(``)}
+    
+    </div>
+    `
+    document.write([agenda])
+console.log(agenda)
+    </script>
+
+
+
+</h1>
+</body>
+</html>
