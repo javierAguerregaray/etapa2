@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>boca de urna</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+<script>
+function App2() {
+  const [count2, setCount] = useState(0)
+ 
+  return (
+    <>   
+      <h2>candidato 1</h2>
+      <div className="card">
+        <button onClick={() => setCount((count2) => count2 + 1)}>
+          +
+        </button>
+        <button onClick={() => setCount((count2) => count2 - 1)}>
+          -
+        </button>
+               <div>cantidad de votantes  <p>candidato 1</p> <h1>{count2}</h1></div>
+
+        
+      </div>
+      
+    </>
+  )
+}
+function App3() {
+ 
+ const [count3, setCount] = useState(0)
+
+ return (
+   <>   
+     <h2>candidato 2</h2>
+     <div className="card">
+       <button onClick={() => setCount((count3) => count3 + 1)}>
+         +
+       </button>
+       <button onClick={() => setCount((count3) => count3 - 1)}>
+         -
+       </button>
+       <div>cantidad de votantes  <p>candidato 2</p> <h1>{count3}</h1></div>
+
+
+       <p>
+    
+       </p>
+     </div>
+
+     <p className="read-the-docs">
+       Trabajo práctico UTN - etapa 2
+     </p>
+   </>
+ )
+}
+
+
+</script>
+    
+
+
+  </body>
+</html>
