@@ -25,6 +25,8 @@ const [nueva , setValue] = React.useState ([]); //este es el valor
 
 
 
+//ahora toma el dato del input value y se lo asigna a nueva y despues con el button lo agrega a la lista tareas
+// y despues borra el campo
 
 return ( 
 
@@ -34,7 +36,9 @@ return (
 <input value={nueva} onChange= {(e) => setValue(e.target.value)} />
 <button onClick = {()=>{setList([...tareas, nueva]);setValue("")} }>agregar</button>
 <hr />
+
 <ul>
+
     {
   tareas.map((lista, lis) => (
     <li key={`li_${lis}`}>
@@ -49,6 +53,9 @@ return (
     </ul>
 
 </div>
+//tareas es el array de la lista, con span se visualiza en pantalla
+// el button aca sirve para eliminar de la lista aplicandole filter
+
 
 
 )
