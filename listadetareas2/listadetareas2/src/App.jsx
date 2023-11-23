@@ -8,20 +8,45 @@ import { useState, useEffect } from 'react'
 ]
 
 function App() {
+  const [proximoId, setProximoId]= useState(4)
  const [tareas, setTareas]= useState (tareaInicial)
 
+//agrega una tarea
 function agregar (tarea){
-  console.log ("agregando ", tarea)
-  //agregar una tarea
+
+  
+  const nuevo = {
+    id: proximoId,
+    tarea,
+    estado:"pendiente"
+  }
+  setTareas([... tareas, nuevo])
+  setProximoId(proximoId+1)
 }
+//cambia el estado
+function cambiar (id) {
+const actual = tareas.find(tare => tare.id === id)
+const nuevo = {...actual, estado: actual.estado+"1"} 
+const nuevos = tareas.map(tare => tare.id === id ? nuevo:tare)
+setTareas(nuevos)  
+}
+//borra una tarea
+function borrar (id) {
+const nuevos =tareas.filter(tare => tare.id !== id)  
+setTareas(nuevos)
+
+}
+
+
 
   return (
     <>
       <h1>lista de tareas</h1>
     <TaskForm alAgregar= {agregar} />
-    <TaskList tareas= {tareas} />
+    <TaskList tareas= {tareas} alCambiar={cambiar} alBorrar={borrar} />
     </>
   )
+
 }
 
 function TaskForm ({alAgregar}){
@@ -46,20 +71,35 @@ return (
 )
 
 }
-function TaskList ({tareas}){
+function TaskList ({tareas, alCambiar, alBorrar}){
 return(
 <ul>
-{tareas.map(tare => <TaskItem key= {tare.id} tare = {tare}   />) }
+{tareas.map(tare =>
+   <TaskItem   
+   key= {tare.id} 
+   tare = {tare} 
+   alCambiar={alCambiar}
+   alBorrar={alBorrar}
+
+   />) }
 </ul>
 
 )
 }
 
-function TaskItem ( { tare} ){
+function TaskItem ( { tare, alCambiar, alBorrar} ){
 return (
   <li>
     <span>{tare.tarea}</span>
     <span>{tare.estado}</span>
+    <label for="estado"></label>
+      <select name="estado" id="estado">
+        <option value="hecho">Hecho</option>
+        <option value="pendiente">Pendiente</option>
+        <option value="rechazada">Rechazada</option>
+              </select>
+    <button onClick={() => alCambiar(tare.id)}>modificar estado</button>
+    <button onClick={() => alBorrar(tare.id)}>eliminar tarea</button>
   </li>
 )
 
